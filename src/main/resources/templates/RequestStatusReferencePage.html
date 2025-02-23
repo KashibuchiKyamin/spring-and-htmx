@@ -35,9 +35,11 @@
 		</form>
 
 		<h2>依頼状況一覧</h2>
-		<div id="search-results" hx-get="./requestStatusReference/table"
-		hx-trigger="load"
-		hx-swap="outerHTML">
+		<div id="search-results"
+			hx-get="./requestStatusReference/table"
+			hx-trigger="load"
+			hx-swap="outerHTML"
+			th:fragment="results">
 			<table border="1">
 				<thead>
 					<tr>
@@ -51,10 +53,10 @@
 						<th>詳細</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>OR20250223-01</td>
-						<td>RE20250223-01</td>
+				<tbody th:if="${listData.isUnsearched()} == false" th:remove="all-but-first">
+					<tr th:each="element : ${listData.list}">
+						<td th:text="${element.orderNumber}">OR20250223-01</td>
+						<td th:text="${element.receptionNumber}">RE20250223-01</td>
 						<td>
 							<div>案件A</div>
 						</td>

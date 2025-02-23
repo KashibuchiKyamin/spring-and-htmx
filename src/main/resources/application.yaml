@@ -6,12 +6,12 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: 
-    sql:
-      init:
-        encoding: UTF-8
-        schema-locations: classpath:schema.sql
     initialize: true
     generate-unique-name: false
+  sql:
+    init:
+      platform: h2
+      encoding: UTF-8
 # H2DB
   h2:
     console:
@@ -19,3 +19,6 @@ spring:
 server:
   servlet:
     context-path: /prinder
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
