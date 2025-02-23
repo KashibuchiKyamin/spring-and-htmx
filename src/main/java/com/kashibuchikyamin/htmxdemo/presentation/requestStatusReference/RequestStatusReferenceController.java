@@ -33,6 +33,6 @@ public class RequestStatusReferenceController {
 	public String get指定条件による一覧情報(Model model) {
 		OrderRequestStatusPageData listData = 案件依頼状況参照画面ビジネスロジック.get指定条件によるデータ取得(1);// とりあえず1ページ目固定
 		model.addAttribute("listData", listData);
-		return "RequestStatusReferenceTable :: results";
+		return "RequestStatusReferencePage :: results";
 	}
 }

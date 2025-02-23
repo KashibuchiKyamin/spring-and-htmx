@@ -35,12 +35,12 @@
 		</form>
 
 		<h2>依頼状況一覧</h2>
-		<div id="search-results"
+		<div
 			hx-get="./requestStatusReference/table"
+			hx-target="#search-results"
 			hx-trigger="load"
-			hx-swap="outerHTML"
-			th:fragment="results">
-			<table border="1">
+			hx-swap="outerHTML">
+			<table border="1" id="search-results" th:fragment="results">
 				<thead>
 					<tr>
 						<th>手配番号 - 枝番</th>
@@ -55,16 +55,16 @@
 				</thead>
 				<tbody th:if="${listData.isUnsearched()} == false" th:remove="all-but-first">
 					<tr th:each="element : ${listData.list}">
-						<td th:text="${element.orderNumber}">OR20250223-01</td>
-						<td th:text="${element.receptionNumber}">RE20250223-01</td>
+						<td th:text="${element.orderNumberForView}">OR20250223-01</td>
+						<td th:text="${element.receptionNumberForView}">RE20250223-01</td>
 						<td>
-							<div>案件A</div>
+							<div th:text="${element.projectName}">案件A</div>
 						</td>
 						<td>
-							<div>顧客A</div>
+							<div th:text="${element.customerName}">顧客A</div>
 						</td>
-						<td>2025-02-01</td>
-						<td>2025-02-15</td>
+						<td th:text="${element.submissionDate}">2025-02-01</td>
+						<td th:text="${element.deliveryDate}">2025-02-15</td>
 						<td>進行中</td>
 						<td><button>表示</button></td>
 					</tr>
