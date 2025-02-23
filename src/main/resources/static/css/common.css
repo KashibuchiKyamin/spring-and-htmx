@@ -1,0 +1,61 @@
+body {
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    width: 1280px;
+    margin: 0 auto; /* 画面のセンターに配置 */
+}
+
+h1 {
+    border-bottom: 2px solid grey; /* グレーの下線を追加 */
+    padding-bottom: 10px
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* 面積を8割に調整 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0s; /* 色の切り替えを即時に */
+    border-radius: 8px; /* 角を丸く */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #004085;
+}
+
+table {
+    border-collapse: collapse; /* 二重線を単線に */
+}
+
+table, th, td {
+    border: 1px solid grey; /* 枠線をグレーに */
+    padding: 8px; /* 余白を追加 */
+}
+
+th {
+    background-color: #004085; /* 濃い目の青系 */
+    color: white; /* 文字色を白く */
+}
+
+td div {
+    word-wrap: break-word; /* 折り返し対応 */
+}
+
+.table-pager{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}

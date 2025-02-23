@@ -1,3 +1,21 @@
 spring:
   application:
     name: htmxdemo
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+    sql:
+      init:
+        encoding: UTF-8
+        schema-locations: classpath:schema.sql
+    initialize: true
+    generate-unique-name: false
+# H2DB
+  h2:
+    console:
+      enabled: true
+server:
+  servlet:
+    context-path: /prinder
