@@ -2,11 +2,14 @@
  * 
  */
 document.getElementById('inputCheck').addEventListener('click', function() {
-	// Get the input and select elements inside the div
+	// 入力血をすべて取得
 	const inputDiv = document.getElementById('input');
 	const inputElements = inputDiv.querySelectorAll('div input, div select');
 
 	//バリデーションをはさむとしたらここ
+	//	if(invalidInput(inputElements)){
+	//		return;
+	//	}
 
 	cloneInputSelectToHiddenFields('input', 'send');
 
@@ -24,15 +27,15 @@ function cloneInputSelectToHiddenFields(idNameOfFrom, idNameOfTo) {
 		formElement.removeChild(formElement.firstChild);
 	}
 
-	// Iterate over each input/select element
+	// input/select タグをイテレートする。
 	inputElements.forEach(function(element) {
-		// Create a hidden input element
+		// 同じnemeのhiddenなinputを作る
 		var hiddenInput = document.createElement('input');
 		hiddenInput.type = 'hidden';
 		hiddenInput.name = element.name;
 		hiddenInput.value = element.value;
 
-		// Append the hidden input to the form
+		// form配下にhiddenタグを追加
 		formElement.appendChild(hiddenInput);
 	});
 
