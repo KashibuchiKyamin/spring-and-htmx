@@ -26,13 +26,13 @@ public class RequestStatusReferenceController {
 		// - テーブルの内容
 		// - それ以外
 		model.addAttribute("listData", OrderRequestStatusPageData.get未検索データ());
-		return "RequestStatusReferencePage";
+		return "requestStatusReferencePage";
 	}
 
 	@GetMapping("/table")
 	public String get指定条件による一覧情報(Model model) {
 		OrderRequestStatusPageData listData = 案件依頼状況参照画面ビジネスロジック.get指定条件によるデータ取得(1);// とりあえず1ページ目固定
 		model.addAttribute("listData", listData);
-		return "RequestStatusReferencePage :: results";
+		return "requestStatusReferencePage :: results";
 	}
 }
