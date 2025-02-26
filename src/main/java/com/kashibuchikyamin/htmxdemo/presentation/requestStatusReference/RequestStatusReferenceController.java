@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kashibuchikyamin.htmxdemo.presentation.requestStatusReference.dto.OrderRequestStatusPageData;
+import com.kashibuchikyamin.htmxdemo.common.ui.PageData;
+import com.kashibuchikyamin.htmxdemo.database.entities.OrderRequestStatus;
 
 import lombok.AllArgsConstructor;
 
@@ -25,13 +26,13 @@ public class RequestStatusReferenceController {
 		// Viewに設定する値はhtmxによる部品単位でセットする
 		// - テーブルの内容
 		// - それ以外
-		model.addAttribute("listData", OrderRequestStatusPageData.get未検索データ());
+		model.addAttribute("listData", PageData.get未検索データ());
 		return "requestStatusReferencePage";
 	}
 
 	@GetMapping("/table")
 	public String get指定条件による一覧情報(Model model) {
-		OrderRequestStatusPageData listData = 案件依頼状況参照画面ビジネスロジック.get指定条件によるデータ取得(1);// とりあえず1ページ目固定
+		PageData<OrderRequestStatus> listData = 案件依頼状況参照画面ビジネスロジック.get指定条件によるデータ取得(1);// とりあえず1ページ目固定
 		model.addAttribute("listData", listData);
 		return "requestStatusReferencePage :: results";
 	}
